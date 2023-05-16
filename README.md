@@ -1,8 +1,8 @@
 <h1 align="center">
   <a href="https://ui.dev">
     <img
-      src="img/typescript.png"
-      alt="TypeScript" height="300" width="600" />
+      src="img/typescript-icon.png"
+      alt="TypeScript" height="400" width="600" />
   </a>
   <br />
 </h1>
