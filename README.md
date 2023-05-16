@@ -9,9 +9,22 @@
 
 <h3 align="center">توضیحات برای تنظیمات در فایل tsconfig.json</h3>
 
+### نحوه ساخت فایل tsconfig.json
+با دستور زیر تایپ اسکریپت رو در سیستم نصب میشود.
+💢 <h4>`npm i -g typescript`</h4>
+
+با دستور زیر فایل میشه ورژن typescript نصب شده رو متوجه شد
+💢 <h4>`tsc -v`</h4>
+
+با دستور زیر فایل ایجاد میشود
+💢 <h4>`tsc --init`</h4>
+
+### لیست آپشن ها
+[Target](https://github.com/golismero96/TypeScript#target) . [RootDir](https://github.com/golismero96/TypeScript#rootdir) . [SourceMap](https://github.com/golismero96/TypeScript#sourcemap)
 
 ### Target
 تایپ اسکریپت به کدام نسخه جاوااسکریپت تبدیل بشه.
+## 
 ### RootDir
 تایپ اسکریپت ها رو از کدام دایرکتوری بخونه.
 ### SourceMap
