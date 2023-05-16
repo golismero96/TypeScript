@@ -2,7 +2,7 @@
   <a href="https://ui.dev">
     <img
       src="img/typescript.png"
-      alt="TypeScript" height="200" width="600" />
+      alt="TypeScript" height="300" width="600" />
   </a>
   <br />
 </h1>
