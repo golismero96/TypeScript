@@ -4,7 +4,6 @@
       src="img/typescript-icon.png"
       alt="TypeScript" width="600" />
   </a>
-  <br />
 </h1>
 
 <h2 align="center">توضیحات برای تنظیمات در فایل tsconfig.json</h2>
