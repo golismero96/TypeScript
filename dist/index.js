@@ -47,4 +47,6 @@ function getItems(items) {
     console.log(`2- items: ${items === null || items === void 0 ? void 0 : items[2]}`);
 }
 getItems();
+let log = null;
+log === null || log === void 0 ? void 0 : log("a");
 //# sourceMappingURL=index.js.map
