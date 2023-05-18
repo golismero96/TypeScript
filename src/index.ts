@@ -82,3 +82,10 @@ getItems();
 let log: any = null;
 // this is Error => log('a')
 log?.("a"); // this is true
+
+let speed: number | null = null;
+let ride = {
+  speed: speed ?? 30,
+};
+
+let phone = document.getElementById("phone");
