@@ -58,7 +58,7 @@ let quantity: Quantity = 50;
 type Metric = "cm" | "inch";
 let metric: Metric = "cm";
 
-function greet(name: string | null | undefined) {
+function greet(name: string) {
   name ? console.log(name.toUpperCase()) : console.log("Invalid argumanet");
 }
 greet(null);
