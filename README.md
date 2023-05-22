@@ -30,7 +30,7 @@ tsc
 ##
 
 ### ✅ لیست آپشن ها
-[Target](https://github.com/golismero96/TypeScript#target) . [RootDir](https://github.com/golismero96/TypeScript#rootdir) . [SourceMap](https://github.com/golismero96/TypeScript#sourcemap) . [OutDir](https://github.com/golismero96/TypeScript#outdir) . [RemoveComments](https://github.com/golismero96/TypeScript#removecomments) . [NoUnusedLocals](https://github.com/golismero96/TypeScript#nounusedlocals) . [NoUnusedParameters](https://github.com/golismero96/TypeScript#nounusedparameters) . [NoImplicitReturns](https://github.com/golismero96/TypeScript#noimplicitreturns) . [StrictNullChecks](https://github.com/golismero96/TypeScript#strictnullchecks)
+[Target](https://github.com/golismero96/TypeScript#target) . [RootDir](https://github.com/golismero96/TypeScript#rootdir) . [SourceMap](https://github.com/golismero96/TypeScript#sourcemap) . [OutDir](https://github.com/golismero96/TypeScript#outdir) . [RemoveComments](https://github.com/golismero96/TypeScript#removecomments) . [NoUnusedLocals](https://github.com/golismero96/TypeScript#nounusedlocals) . [NoUnusedParameters](https://github.com/golismero96/TypeScript#nounusedparameters) . [NoImplicitReturns](https://github.com/golismero96/TypeScript#noimplicitreturns) . [StrictNullChecks](https://github.com/golismero96/TypeScript#strictnullchecks) . [AllowUnreachableCode](https://github.com/golismero96/TypeScript#allowUnreachableCode)
 ##
 
 ### ✅ توضیحات کامل برای آپشن ها
@@ -78,3 +78,9 @@ greet(null);
 💢 غیر فعال کردن این اخطار اصلا توصیه نمیشه.
 
 
+### AllowUnreachableCode
+اگر کدی وجود داشته باشد که پروسه اجرا به آن قطعه کد نرسد با غیر فعال کردن این گزینه هشدار داده میشود که این کد قابل دسترسی نیست.
+
+allowUnreachableCode: false // هشدار برای کدهای غیر قابل دسترسی 
+
+allowUnreachableCode: true // عدم هشدار برای کدهای غیر قابل دسترسی

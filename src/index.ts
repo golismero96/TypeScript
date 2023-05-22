@@ -88,4 +88,22 @@ let ride = {
   speed: speed ?? 30,
 };
 
-let phone = document.getElementById("phone");
+let phone = <HTMLInputElement>document.getElementById("phone");
+// <HTMLInputElement> === as HTMLInputElement
+phone.value = "0912";
+
+function render(document: unknown): string | unknown {
+  if (typeof document === "string") {
+    return document.toUpperCase();
+  }
+  return document;
+}
+
+function processEvents(): never {
+  // never => this function never return anything
+  while (true) {
+    console.log("process");
+  }
+}
+// processEvents();
+console.log("hey");
