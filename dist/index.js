@@ -69,15 +69,23 @@ class Account {
     constructor(id, name, balance) {
         this.id = id;
         this.name = name;
-        this.balance = balance;
+        this._balance = balance;
     }
     deposite(amount) {
         if (amount <= 0)
             throw new Error("Invalid amount");
-        this.balance += amount;
+        this._balance += amount;
+        this._calculateTax();
+    }
+    getBalance() {
+        return this._balance;
+    }
+    _calculateTax() {
+        return 0;
     }
 }
 let account = new Account(1, "mostafa", 0);
 account.deposite(14500000);
 console.log(account instanceof Account);
+console.log(account.getBalance());
 //# sourceMappingURL=index.js.map
