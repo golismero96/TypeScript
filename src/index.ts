@@ -109,13 +109,13 @@ function processEvents(): never {
 console.log("hey");
 
 class Account {
-  readonly id: number; // readonly => can't change
+  // readonly id: number; // readonly => can't change
   name: string;
   nickname?: string; // optional
   private _balance: number; // private => can't access from outside of class And Underline is a convention for private properties
 
-  constructor(id: number, name: string, balance: number) {
-    this.id = id;
+  constructor(public id: number, name: string, balance: number) {
+    // this.id = id; => this is comment because of public id in constructor
     this.name = name;
     this._balance = balance;
   }
