@@ -58,7 +58,7 @@ let quantity: Quantity = 50;
 type Metric = "cm" | "inch";
 let metric: Metric = "cm";
 
-function greet(name: string) {
+function greet(name: string | null | undefined) {
   name ? console.log(name.toUpperCase()) : console.log("Invalid argumanet");
 }
 greet(null);
@@ -88,9 +88,9 @@ let ride = {
   speed: speed ?? 30,
 };
 
-let phone = <HTMLInputElement>document.getElementById("phone");
+// let phone = <HTMLInputElement>document.getElementById("phone");
 // <HTMLInputElement> === as HTMLInputElement
-phone.value = "0912";
+// phone.value = "0912";
 
 function render(document: unknown): string | unknown {
   if (typeof document === "string") {
@@ -107,3 +107,24 @@ function processEvents(): never {
 }
 // processEvents();
 console.log("hey");
+
+class Account {
+  id: number;
+  name: string;
+  balance: number;
+
+  constructor(id: number, name: string, balance: number) {
+    this.id = id;
+    this.name = name;
+    this.balance = balance;
+  }
+
+  deposite(amount: number): void {
+    if (amount <= 0) throw new Error("Invalid amount");
+    this.balance += amount;
+  }
+}
+
+let account = new Account(1, "mostafa", 0);
+account.deposite(14_500_000);
+console.log(account instanceof Account);

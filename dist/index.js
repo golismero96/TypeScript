@@ -49,4 +49,35 @@ function getItems(items) {
 getItems();
 let log = null;
 log === null || log === void 0 ? void 0 : log("a");
+let speed = null;
+let ride = {
+    speed: speed !== null && speed !== void 0 ? speed : 30,
+};
+function render(document) {
+    if (typeof document === "string") {
+        return document.toUpperCase();
+    }
+    return document;
+}
+function processEvents() {
+    while (true) {
+        console.log("process");
+    }
+}
+console.log("hey");
+class Account {
+    constructor(id, name, balance) {
+        this.id = id;
+        this.name = name;
+        this.balance = balance;
+    }
+    deposite(amount) {
+        if (amount <= 0)
+            throw new Error("Invalid amount");
+        this.balance += amount;
+    }
+}
+let account = new Account(1, "mostafa", 0);
+account.deposite(14500000);
+console.log(account instanceof Account);
 //# sourceMappingURL=index.js.map
