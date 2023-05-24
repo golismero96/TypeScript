@@ -109,22 +109,32 @@ function processEvents(): never {
 console.log("hey");
 
 class Account {
-  id: number;
+  readonly id: number; // readonly => can't change
   name: string;
-  balance: number;
+  nickname?: string; // optional
+  private _balance: number; // private => can't access from outside of class And Underline is a convention for private properties
 
   constructor(id: number, name: string, balance: number) {
     this.id = id;
     this.name = name;
-    this.balance = balance;
+    this._balance = balance;
   }
 
   deposite(amount: number): void {
     if (amount <= 0) throw new Error("Invalid amount");
-    this.balance += amount;
+    this._balance += amount;
+    this._calculateTax();
+  }
+  getBalance(): number {
+    return this._balance;
+  }
+  private _calculateTax(): number {
+    return 0;
   }
 }
 
+// access modifier => public, private, protected
 let account = new Account(1, "mostafa", 0);
 account.deposite(14_500_000);
 console.log(account instanceof Account);
+console.log(account.getBalance());
