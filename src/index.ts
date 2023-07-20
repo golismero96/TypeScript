@@ -109,15 +109,21 @@ function processEvents(): never {
 console.log("hey");
 
 class Account {
-  // readonly id: number; // readonly => can't change
-  name: string;
+  // readonly id: number; // readonly => That is, it cannot be changed
+  // name: string;
   nickname?: string; // optional
-  private _balance: number; // private => can't access from outside of class And Underline is a convention for private properties
+  // Here's a convention: we start Private Variable names with an underscore
+  // private _balance: number; // private => can't access from outside of class And Underline is a convention for private properties
 
-  constructor(public id: number, name: string, balance: number) {
-    // this.id = id; => this is comment because of public id in constructor
-    this.name = name;
-    this._balance = balance;
+  constructor(
+    public readonly id: number,
+    public name: string,
+    private _balance: number
+  ) {
+    // this is comment on because variables in constructor exist
+    // this.id = id;
+    // this.name = name;
+    // this._balance = balance;
   }
 
   deposite(amount: number): void {
@@ -125,8 +131,14 @@ class Account {
     this._balance += amount;
     this._calculateTax();
   }
-  getBalance(): number {
+  get balance(): number {
+    // this is one geter Method - 'getBalance()' method change to 'get balance()'
     return this._balance;
+  }
+  set balance(value: number) {
+    // this is one seter Method
+    if (value <= 0) throw new Error("Invalid amount");
+    this._balance += value;
   }
   private _calculateTax(): number {
     return 0;
@@ -137,4 +149,70 @@ class Account {
 let account = new Account(1, "mostafa", 0);
 account.deposite(14_500_000);
 console.log(account instanceof Account);
-console.log(account.getBalance());
+console.log(account.balance);
+account.balance = 2;
+
+class SeatAssignment {
+  [seatNumber: string]: string;
+}
+let seats = new SeatAssignment();
+seats.A1 = "Mostafa";
+seats.A2 = "Golnaz";
+seats["A3"] = "Kaveh";
+
+class Ride {
+  private static _activeRides: number = 0;
+
+  static get activeRides(): number {
+    return Ride._activeRides;
+  }
+  start() {
+    Ride._activeRides++;
+  }
+  stop() {
+    Ride._activeRides--;
+  }
+}
+let ride1 = new Ride();
+ride1.start();
+let ride2 = new Ride();
+ride2.start();
+ride2.start();
+ride2.start();
+ride2.start();
+ride2.stop();
+console.log(Ride.activeRides);
+
+class Person {
+  constructor(public firstName: string, public lastName: string) {}
+
+  walk() {
+    console.log("walk");
+  }
+
+  get fullName(): string {
+    return `${this.firstName} ${this.lastName}`;
+  }
+}
+
+class Student extends Person {
+  constructor(public studentId: number, firstName: string, lastName: string) {
+    super(firstName, lastName);
+  }
+
+  takeTest() {
+    console.log("taking a test");
+  }
+}
+
+let student = new Student(1, "Mostafa", "Dadfar");
+student.walk();
+
+class Teacher extends Person {
+  override get fullName(): string {
+    return `Professor: ${super.fullName}`;
+  }
+}
+
+let teacher = new Teacher("Mostafa", "Dadfar");
+console.log(teacher.fullName);
