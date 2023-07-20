@@ -66,10 +66,10 @@ function processEvents() {
 }
 console.log("hey");
 class Account {
-    constructor(id, name, balance) {
+    constructor(id, name, _balance) {
         this.id = id;
         this.name = name;
-        this._balance = balance;
+        this._balance = _balance;
     }
     deposite(amount) {
         if (amount <= 0)
@@ -77,8 +77,13 @@ class Account {
         this._balance += amount;
         this._calculateTax();
     }
-    getBalance() {
+    get balance() {
         return this._balance;
+    }
+    set balance(value) {
+        if (value <= 0)
+            throw new Error("Invalid amount");
+        this._balance += value;
     }
     _calculateTax() {
         return 0;
@@ -87,5 +92,63 @@ class Account {
 let account = new Account(1, "mostafa", 0);
 account.deposite(14500000);
 console.log(account instanceof Account);
-console.log(account.getBalance());
+console.log(account.balance);
+account.balance = 2;
+class SeatAssignment {
+}
+let seats = new SeatAssignment();
+seats.A1 = "Mostafa";
+seats.A2 = "Golnaz";
+seats["A3"] = "Kaveh";
+class Ride {
+    static get activeRides() {
+        return Ride._activeRides;
+    }
+    start() {
+        Ride._activeRides++;
+    }
+    stop() {
+        Ride._activeRides--;
+    }
+}
+Ride._activeRides = 0;
+let ride1 = new Ride();
+ride1.start();
+let ride2 = new Ride();
+ride2.start();
+ride2.start();
+ride2.start();
+ride2.start();
+ride2.stop();
+console.log(Ride.activeRides);
+class Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    walk() {
+        console.log("walk");
+    }
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+}
+class Student extends Person {
+    constructor(studentId, firstName, lastName) {
+        super(firstName, lastName);
+        this.studentId = studentId;
+    }
+    takeTest() {
+        console.log("taking a test");
+    }
+}
+let student = new Student(1, "Mostafa", "Dadfar");
+student.walk();
+class Teacher extends Person {
+    get fullName() {
+        return `Professor: ${super.fullName}`;
+    }
+}
+let teacher = new Teacher("Mostafa", "Dadfar");
+console.log(teacher.fullName);
 //# sourceMappingURL=index.js.map
