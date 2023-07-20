@@ -88,3 +88,16 @@ allowUnreachableCode: false // هشدار برای کدهای غیر قابل د
 
 allowUnreachableCode: true // عدم هشدار برای کدهای غیر قابل دسترسی
 ```
+
+### NoImplicitOverride
+اگر بخواهیم در کلاس فرزند یک متد از کلاس والد را override کنیم باید قبل از نام متد حتما کلمه override را بنویسیم.
+```shell
+noImplicitOverride: false // اگر override نوشته نشود خطایی داده نمیشود
+
+noImplicitOverride: true // اگر override نوشته نشود خطا داده میشود
+```
+```shell
+override get fullName(): string {
+  return `Professor: ${super.fullName}`;
+}
+```
