@@ -106,7 +106,6 @@ function processEvents(): never {
   }
 }
 // processEvents();
-console.log("hey");
 
 class Account {
   // readonly id: number; // readonly => That is, it cannot be changed
@@ -116,7 +115,7 @@ class Account {
   // private _balance: number; // private => can't access from outside of class And Underline is a convention for private properties
 
   constructor(
-    public readonly id: number,
+    public readonly uuId: number,
     public name: string,
     private _balance: number
   ) {
@@ -157,7 +156,7 @@ class SeatAssignment {
 }
 let seats = new SeatAssignment();
 seats.A1 = "Mostafa";
-seats.A2 = "Golnaz";
+seats.A2 = "Amir";
 seats["A3"] = "Kaveh";
 
 class Ride {
@@ -216,3 +215,21 @@ class Teacher extends Person {
 
 let teacher = new Teacher("Mostafa", "Dadfar");
 console.log(teacher.fullName);
+
+class Princopal extends Person {
+  override get fullName(): string {
+    return `Princopal: ${super.fullName}`;
+  }
+}
+
+const printNames = (people: Person[]) => {
+  people.forEach((person: Person) => {
+    console.log(person.fullName);
+  });
+};
+
+printNames([
+  new Student(1, "Mostafa", "Dadfar"),
+  new Teacher("Kaveh", "Dadkhah"),
+  new Teacher("Amir", "Radfar"),
+]);
