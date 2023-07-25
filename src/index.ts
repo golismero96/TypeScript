@@ -185,7 +185,8 @@ console.log(Ride.activeRides);
 class Person {
   constructor(public firstName: string, public lastName: string) {}
 
-  walk() {
+  // protected: It is similar to private, with the difference that child classes that inherit from this parent class can access this method.
+  protected walk() {
     console.log("walk");
   }
 
@@ -203,9 +204,6 @@ class Student extends Person {
     console.log("taking a test");
   }
 }
-
-let student = new Student(1, "Mostafa", "Dadfar");
-student.walk();
 
 class Teacher extends Person {
   override get fullName(): string {
