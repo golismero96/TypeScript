@@ -201,6 +201,7 @@ class Student extends Person {
   }
 
   takeTest() {
+    this.walk();
     console.log("taking a test");
   }
 }
@@ -231,3 +232,50 @@ printNames([
   new Teacher("Kaveh", "Dadkhah"),
   new Teacher("Amir", "Radfar"),
 ]);
+
+// Avoid sampling a class
+abstract class Shape {
+  constructor(public color: string) {}
+
+  abstract render(): void;
+}
+
+class Circle extends Shape {
+  constructor(public radius: number, color: string) {
+    super(color);
+  }
+
+  override render(): void {
+    console.log("Rendering a circle...");
+  }
+}
+// This is error
+// let shape = new Shape('red');
+// shape.render();
+
+let circle = new Circle(5, "red");
+circle.render();
+
+abstract class Calendar {
+  constructor(public name: string) {}
+
+  abstract addEvent(): void;
+  abstract removeEvent(): void;
+}
+
+interface CalendarInterface {
+  name: string;
+  addEvent(): void;
+  removeEvent(): void;
+}
+
+interface CloudCalendar extends CalendarInterface {
+  sync(): void;
+  user: string;
+}
+
+abstract class GoogleCalendar implements CalendarInterface {
+  constructor(public name: string) {}
+  abstract addEvent(): {};
+  abstract removeEvent(): {};
+}
